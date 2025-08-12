@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIT Pro Bud</title>
+    <link rel="stylesheet" href="/public/assets/landing.css" />
+    <link rel="stylesheet" href="/public/assets/show.css" />
+  </head>
+  <body>
+
+    <!-- This is  start of the navbar -->
+    <div class="topnav">
+      <a id="title" href="/">VIT ProjectMate</a>
+      <a class="alig" href="/projects">Explore</a>
+      <a class="alig" href="/about">About</a>
+      <a class="alig" href="/contact">Contact</a>
+      <a class="alig" href="/gallery">Gallery</a>
+      
+      <a class="alig" href="/register">Register</a>
+      <a class="alig" href="/login">Login</a>
+      
+          <a class="alig" href="/logout">Logout</a>
+   
+      <a href="/userprofile"><img src="/" alt=""></a>
+      
+  </div>
+    <!-- navbar end -->
+    <h2 id="result" style="color: rgb(10, 80, 53); margin: auto;text-align: center;margin-bottom: 20px; margin-top: 20px;"></h2>
+
+     <!-- Project details started   -->
+    <h1>Project Details</h1>
+
+    <div class="container">
+      <h2>
+        Title:   
+        <span class="need">
+          <small><i>by </i></small>
+        </span>
+      </h2>
+
+      <h2>Description</h2>
+      <p>
+        
+      </p>
+
+      <h2>Technologies Used</h2>
+      <p>
+        
+      </p>
+      <h2>Team Requirement</h2>
+      <p>
+        <span>Maximum members:</span><span class="need"> Members need:</span>
+      </p>
+      <div class="apply">
+        <form action="/request/" method="post">
+          
+          <button id="apply" class="btn" type="submit">APPLY</button>
+        </form>
+        
+          <a href="/login" class="btn">APPLY</a>
+          
+      </div>
+    </div>
+   <!-- Project details ended -->
+
+
+   <!-- footer start -->
+    <div class="footer">
+      <p>Copyright &#169; 2025 Aarushi Chaddha</p>
+    </div>
+    <!-- footer ended -->
+
+
+    <script>
+        document.getElementById("apply").addEventListener("click", function() {
+  document.getElementById("result").innerHTML = "Thank you for applying for this project please check Your applications for the status";
+});
+   
+    </script>
+  </body>
+</html>

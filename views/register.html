@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/public/assets/register.css">
+</head>
+<body>
+
+    <!-- This is  start of the navbar -->
+    <div class="topnav">
+      <a id="title" href="/">VIT ProjectMate</a>
+      <a class="alig" href="/projects">Explore</a>
+      <a class="alig" href="/about">About</a>
+      <a class="alig" href="/contact">Contact</a>
+      <a class="alig" href="/gallery">Gallery</a>
+  
+      <a class="alig" href="/register">Register</a>
+      <a class="alig" href="/login">Login</a>
+      
+  
+ 
+  </div>
+    <!-- navbar end -->
+
+
+   <!-- Registration form start -->
+    <table>
+        <tr>
+          <td style="text-align: center">
+            <ul style="list-style-type: none">
+              <li>
+                <a href="#" style="text-decoration: none"><img src="/public/images/google.png" alt="google" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+                <a href="#" style="text-decoration: none"><img src="/public/images/face.svg" alt="facebook" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+                <a href="#" style="text-decoration: none"><img src="/public/images/github.svg" alt="GITHUB" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+                <a href="#" style="text-decoration: none"><img src="/public/images/ln.png" alt="LINKEDIN" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+        <hr>
+              <form onsubmit="return checkinput()" name="login" action="/register" method="POST" enctype="multipart/form-data" id="registerForm">
+                <div>
+                  <h5 id="msg" style="color: red; align-content: center;"></h5>
+                </div>
+    
+                
+              
+    
+                <div class="form-group">
+                  <input type="email" class="form-control" id="inputEmail4" name="username" placeholder="VIT Email" required/>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="inputEmail5" name="email" placeholder="Name" required/>
+                </div>
+                <hr>
+                <div class="form-group gap">
+                  <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required/>
+                </div>
+               <hr>
+                <div class="form-group gap">
+                  <input type="password" class="form-control" id="inputconfPassword" name="confpassword" placeholder="Confirm Password" required/>
+                </div>
+               <hr>
+
+               <div class="form-group  gap">
+                <input type="text" class="form-control" id="inputInstitute" name="institute" placeholder="Institute" required/>
+              </div>
+              <hr>
+              
+              <div class="form-group  gap">
+                <input type="text" class="form-control" id="about" name="about" placeholder="About" required/>
+              </div>
+              <hr>
+
+              <div class="form-group  gap">
+                <label>Upload your profile photo</label>
+                <input type="file" name="myImage" accept="image/*" required/>
+              </div>
+             
+              <hr>
+              <div class="form-group  gap">
+                <input type="text" class="form-control" id="inputLanguages" name="language"
+                  placeholder="Favourite Programming Language" />
+              </div>
+              <hr>
+              <div class="form-group  gap">
+                <input type="text" class="form-control" id="githublink" name="github"
+                  placeholder="Github Link" />
+              </div>
+              <hr>
+              <div class="form-group gap">
+                <input type="text" class="form-control" id="linkedinLink" name="linkedIn"
+                  placeholder="LinkedIn Link" />
+              </div>
+              <hr>
+            
+                <div>
+                  &nbsp;&nbsp;
+                  <button id="registerbtn"  class="btn">Register</button>
+                  
+                </div>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </table>
+   <!-- Registration form ended -->
+
+   <!-- footer start -->
+      <div class="footer">
+        <p>Copyright &#169; 2025 Aarushi Chaddha</p>
+    </div>
+    <!-- footer ended -->
+
+    <script>
+ 
+      function checkinput()
+      {
+    
+        var str=document.login.linkedIn.value;
+         var result=str.match(/(ftp|http|https):\/\/?((www|\w\w)\.)?linkedin.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/)
+        var str1=document.login.github.value;
+         var result2=str1.match(/^(https:\/\/www\.github\.com\/)/i)
+          console.log(result2)
+         if(document.login.username.value=="")
+         {
+             alert("Please enter the User Email");
+           return false;
+         }
+        else if(document.login.password.value!=document.login.confpassword.value)
+         {
+          alert("passwords dont match");
+          return false;
+         }
+        
+         else if(result==null){
+
+        alert("Wrong LinkedIn Link")
+        return false;
+         }
+        //  else if(result2==null){
+
+        // alert("Wrong Github Link")
+        // return false;
+        //  }
+         else{
+ 
+          alert("Thank you for Registration");
+          return true;
+         }
+         
+      }
+   
+    
+      </script>
+      
+</body>
+</html>

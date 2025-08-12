@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Requests</title>
+    <link rel="stylesheet" href="/public/assets/search.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script   src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+
+
+      
+
+
+<div class="nav-wrapper search-bar">
+  <form action="/search" method="POST">
+    <div class="input-field">
+      <input id="search" type="search" name="q" placeholder="Search a project here" value="" required>
+      <button><label class="label-icon" for="search"><i class="material-icons">search</i></label></button>
+      <i class="material-icons">close</i>
+    </div>
+  </form>
+</div>
+
+        <div class="row">
+          <div class="col s12 m3">
+          </div>
+          <div class="col s12 m6">
+            <div class="card"><a href="/projects/">
+              
+                <span class="card-title"></span>
+              </div>
+              <div class="card-content">
+                <p></p>
+              </div>
+              <div class="card-action">
+                <a href="/profile/" id="author"><span class="author-tag">Author:     </span></a>
+              </div>
+            </div></a>
+          </div>
+          <div class="col s12 m3">
+          </div>
+        </div>
+
+      <div class="no-blogs">
+        <h1>No projects Found</h1>
+      </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>                  <!-- jquery should come before materialize.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
+        <script>
+            $(document).ready(function(){     //For side nav in mobile screen
+                $('.sidenav').sidenav();
+            });
+            $(document).ready(function(){     //For delete pop up screen
+                $('.modal').modal();
+            });
+            $(document).ready(function(){     //For comment slide down button
+                $('com-edit-but').click(function(){
+                    $(".com-edit-form").toggleClass("noDisplay");
+                });
+            });
+            $(document).ready(function(){
+                $('.collapsible').collapsible();
+            });
+        </script>
+    </body>
+</html> 

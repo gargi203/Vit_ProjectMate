@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your project</title>
+    <link rel="stylesheet" href="/public/assets/new.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- This is  start of the navbar -->
+<div class="topnav">
+  <a id="title" href="/">VIT ProjectMate</a>
+  <a class="alig" href="/projects">Explore</a>
+  <a class="alig" href="/about">About</a>
+  <a class="alig" href="/contact">Contact</a>
+  <a class="alig" href="/gallery">Gallery</a>
+  
+  <a class="alig" href="/register">Register</a>
+  <a class="alig" href="/login">Login</a>
+  
+      <a class="alig" href="/logout">Logout</a>
+
+  <a href="/userprofile"><img src="/" alt=""></a>
+  
+</div>
+<!-- navbar end -->
+<h2 id="result" style="color: rgb(156, 228, 200); margin: auto;text-align: center; margin-top: 20px;"></h2>
+  <!-- project editing form start -->
+    <div class="row" style="margin-top: 5.5rem;">
+        <div class="col s12 m12 l12">
+          <div class="card" style="height: 70rem;">
+            <span class="card-title project-details">Project details</span>
+            <div class="card-content" >
+              <form action="/projects/editproject/?_method=PUT" method="post" class="col s12 l12">
+              <div  class="project-details" style="display: block;">
+                <div><label>Title</label>
+                  <input type="text" name="title" value="" style="width: 800rem;" required>
+                </div>
+                <div><label>Description</label>
+                  <textarea id="textarea1" value="" class="materialize-textarea" type="text" name="description" cols="10"  minlength="20" required style="width: 300rem;"></textarea>
+                </div>
+                
+
+                <div><label>Technologies needed</label>
+                  <input type="text" value="" name="technology" required style="width: 800rem;">
+                </div>
+                <div><label>No. of members required</label>
+                  <input type="number" name="members"  value="" required style="width: 800rem;">
+                </div>
+              </div>
+            
+            <button id="save" type="submit" class="waves-effect waves-light black lighten-5 white-text center">Save</button>
+          </form>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+     <!-- project editing form ended -->
+
+     <script>
+     document.getElementById("save").addEventListener("click", function() {
+      document.getElementById("result").innerHTML = "Your Changes has been made";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+    });
+    $("save").click(function() {
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+  return false;
+});
+  </script>
+ 
+</body>
+</html>

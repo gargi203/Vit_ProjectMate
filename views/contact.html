@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/public/assets/contact.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+</head>
+<body>
+
+   <!-- This is  start of the navbar -->
+   <div class="topnav">
+	<a id="title" href="/">VIT ProjectMate</a>
+	<a class="alig" href="/projects">Explore</a>
+	<a class="alig" href="/about">About</a>
+	<a class="alig" href="/contact">Contact</a>
+	<a class="alig" href="/gallery">Gallery</a>
+	
+	<a class="alig" href="/register">Register</a>
+	<a class="alig" href="/login">Login</a>
+	
+		<a class="alig" href="/logout">Logout</a>
+ 
+	<a href="/userprofile"><img src="/" alt=""></a>
+	
+</div>
+  <!-- navbar end -->
+
+	  <!-- contact form start -->
+    <div class="full">
+		
+		<div class="Contact-Form">
+			<h1> Contact Us</h1>
+			<h3></h3>
+			<form  id="my-form" action="https://formspree.io/f/mrgrpkdl" method="POST">
+			<div class="input-fields">
+				<input class="name" type="text" class="input"  name="name" placeholder="Your Name *"  required>
+				<input class="email" required type="email" name="email" class="input" placeholder="Your Emaill *">
+				<input class="phone" required type="text" class="input" name="phone" placeholder="Your Phone *">
+				
+			</div>
+			<div class="msg">
+				<textarea class="text" name="text" required placeholder="Message *"></textarea>
+				
+			</div>
+			<div>
+				<button type="submit" class="submit"> Send message</button>
+			</div>
+		</form>	
+			<div class="details">
+				<h3> Contact info </h3>
+				<p> E-mail: aarushichaddha0209@gmail.com</p>
+				<p> Mobile: +919839688488</p>
+				<p> web: github.com/aarushi0209 </p>
+				<p>Working hours: 9am-6pm</p>
+                <p></p>
+			</div>
+				
+		</div>	
+	</div>
+	<!-- contact form ended -->
+
+	<!-- footer start -->
+   <div class="footer">
+        <p>Copyright &#169; 2025 Aarushi Chaddha</p>
+    </div>
+  <!-- footer end -->
+  <script>
+	  $(document).ready(function(){
+    $(".submit").click(function(event){
+	
+		console.log("Clicked Button")
+		var email=$(".email").val()
+		var email=$(".name").val()
+		var email=$(".text").val()
+		var email=$(".phone").val()
+		
+	})
+	  })
+  </script>
+</body>
+</html>

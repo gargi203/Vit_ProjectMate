@@ -1,0 +1,43 @@
+h1{
+    text-align: center;
+    color: #10175f;
+}
+
+.container{
+    padding: 30px;
+    background-color: black;
+    color: #ffffff;
+    margin: 30px;
+    border-radius: 4px;
+    margin-bottom: 4rem;
+}
+.container h2{
+
+    font-size: 30px;
+}
+.container p{
+
+    font-size: 20px;
+   
+}
+.need{
+    margin-left: 25px;
+}
+.btn{
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border: 2px solid white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 2px;
+    
+
+}
+.apply{
+    text-align: center;
+}
+.btn:hover{
+    background-color: #e4e4e4;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/public/assets/login.css">
+</head>
+<body>
+    
+    <!-- This is  start of the navbar -->
+    <div class="topnav">
+      <a id="title" href="/">VIT ProjectMate</a>
+      <a class="alig" href="/projects">Explore</a>
+      <a class="alig" href="/about">About</a>
+      <a class="alig" href="/contact">Contact</a>
+      <a class="alig" href="/gallery">Gallery</a>
+     
+      <a class="alig" href="/register">Register</a>
+      <a class="alig" href="/login">Login</a>
+ 
+      
+   
+      
+  </div>
+    <!-- navbar end -->
+
+
+   <!-- login form start -->
+    <table>
+        <tr>
+          <td style="text-align: center">
+            <ul style="list-style-type: none">
+              <li>
+                <a href="#" style="text-decoration: none"><img src="/public/images/google.png" alt="google" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+                <a href="#" style="text-decoration: none"><img src="/public/images/face.svg" alt="facebook" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+                <a href="#" style="text-decoration: none"><img src="/public/images/github.svg" alt="GITHUB" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+                <a href="#" style="text-decoration: none"><img src="/public/images/ln.png" alt="LINKEDIN" style="
+                        height: 30px;
+                        width: 30px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                      " />&nbsp&nbsp</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+        <hr>
+              <form action="/login" name="login" method="POST" enctype="application/x-www-form-urlencoded" id="LoginForm">
+                <div>
+                  <h5 id="msg" style="color: red; align-content: center;"></h5>
+                </div>
+    
+                
+              
+    
+                <div class="form-group">
+                  <input type="email" class="form-control" id="inputEmail4" name="username" placeholder="VIT Email" required />
+                </div>
+                <hr>
+                <div class="form-group gap">
+                  <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required/>
+                </div>
+               <hr>
+               
+                <div>
+                  &nbsp;&nbsp;
+                  <button id="registerbtn" class="btn">Login</button>
+                  
+                </div>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <!-- login form ended -->
+
+
+      <!-- footer start -->
+      <div class="footer">
+        <p>Copyright &#169; 2025 Aarushi Chaddha</p>
+    </div>
+    <!-- footer ended -->
+   
+</body>
+</html>

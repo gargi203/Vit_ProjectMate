@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a project</title>
+    <link rel="stylesheet" href="/public/assets/new.css">
+</head>
+<body>
+
+    <!-- This is  start of the navbar -->
+    <div class="topnav">
+      <a id="title" href="/">VIT ProjectMate</a>
+      <a class="alig" href="/projects">Explore</a>
+      <a class="alig" href="/about">About</a>
+      <a class="alig" href="/contact">Contact</a>
+      <a class="alig" href="/gallery">Gallery</a>
+      
+      <a class="alig" href="/register">Register</a>
+      <a class="alig" href="/login">Login</a>
+      
+          <a class="alig" href="/logout">Logout</a>
+   
+      <a href="/userprofile"><img src="/" alt=""></a>
+      
+  </div>
+    <!-- navbar end -->
+
+  <!-- project creation form -->
+    <div class="row" style="margin-top: 5.5rem;">
+      <h2 id="result" style="color: rgb(181, 255, 227); margin: auto;text-align: center;margin-bottom: 20px;"></h2>
+        <div class="col s12 m12 l12">
+          <div class="card" style="height: 70rem;">
+            <span class="card-title project-details">Project details</span>
+            <div class="card-content" >
+              <form action="/projects" method="post" class="col s12 l12">
+              <div  class="project-details" style="display: block;">
+                <div><label>Title</label>
+                  <input type="text" name="title" style="width: 800rem;" required>
+                </div>
+                <div><label>Description</label>
+                  <textarea id="textarea1" value="" class="materialize-textarea" type="text" name="description" cols="10" minlength="20" required style="width: 300rem;"></textarea>
+                </div>
+                
+
+                <div><label>Technologies needed</label>
+                  <input type="text" name="technology" required style="width: 800rem;">
+                </div>
+                <div><label>No. of members required</label>
+                  <input type="number" name="members" required style="width: 800rem;">
+                </div>
+              </div>
+            
+            <button id="submitbtn" type="submit" class="waves-effect waves-light black lighten-5 white-text center">Publish</button>
+          </form>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+     <!-- project creation eneded -->
+    
+
+     <script>
+  document.getElementById("submitbtn").addEventListener("click", function() {
+  document.getElementById("result").innerHTML = "Your Project has been posted";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+     </script>
+ 
+</body>
+</html>
