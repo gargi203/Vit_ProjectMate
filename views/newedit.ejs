@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your project - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/new.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Modern Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <a id="title" class="nav-brand" href="/"><i class="fas fa-code"></i> VIT ProjectMate</a>
+    </div>
+    <div class="nav-menu" id="nav-menu">
+      <a class="nav-link" href="/projects"><i class="fas fa-search"></i> Explore</a>
+      <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About</a>
+      <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+      <a class="nav-link" href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+      <%  if(!user){%>
+      <a class="nav-link nav-cta" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+      <a class="nav-link nav-cta-primary" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <%  }else{ %>
+      <a class="nav-link nav-cta" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="/userprofile" class="nav-profile"><img src="/<%= user.img.path %>" alt="" class="profile-img"></a>
+      <%  } %>
+    </div>
+    <div class="nav-toggle" id="nav-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+</nav>
+
+<h2 id="result" class="hero-subtitle"></h2>
+
+<!-- Form Card -->
+<section class="new-section" style="padding-top:5.5rem">
+  <div class="container">
+    <div class="form-card">
+      <h2 class="form-title">Project details</h2>
+      <form action="/projects/editproject/<%=project.id%>?_method=PUT" method="post" class="form">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" value="<%=project.title%>" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="6" minlength="20" required><%=project.descrip%></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="technology">Technologies needed</label>
+            <input type="text" id="technology" name="technology" value="<%=project.technologies%>" required>
+          </div>
+          <div class="form-group">
+            <label for="members">No. of members required</label>
+            <input type="number" id="members" name="members" value="<%=project.max%>" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button id="save" type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('save').addEventListener('click', function(){
+    const el = document.getElementById('result');
+    if(el){ el.textContent = 'Your Changes have been made'; }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

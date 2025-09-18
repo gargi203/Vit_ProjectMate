@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/about.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="/" class="nav-brand">
+            <i class="fas fa-code"></i>
+            VIT ProjectMate
+          </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+          <a class="nav-link" href="/projects"><i class="fas fa-search"></i> Explore</a>
+          <a class="nav-link active" href="/about"><i class="fas fa-info-circle"></i> About</a>
+          <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+          <a class="nav-link" href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+          <%  if(!user){%>
+          <a class="nav-link nav-cta" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+          <a class="nav-link nav-cta-primary" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <%  }else{ %>
+          <a class="nav-link nav-cta" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          <a href="/userprofile" class="nav-profile"><img src="/<%= user.img.path %>" class="profile-img" alt=""></a>
+          <%  } %>
+        </div>
+
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title"><span class="gradient-text">About VIT ProjectMate</span></h1>
+          <p class="hero-subtitle">Development Leads To Invention</p>
+          <p class="hero-description">VIT ProjectMate is a collaborative platform where students connect, share ideas, and build great projects together. Our mission is to empower developers and innovators to learn, create, and grow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission and Vision -->
+    <section class="about-section">
+      <div class="container">
+        <div class="two-col">
+          <div class="col text">
+            <h2>Our Mission</h2>
+            <p>We provide an open platform to share skills and learn from each other, reshaping the future through collaboration and innovation. Anyone with a passion to create can begin, learn, and contribute.</p>
+            <ul class="checklist">
+              <li><i class="fas fa-check"></i> Discover and join meaningful projects</li>
+              <li><i class="fas fa-check"></i> Build teams with complementary skills</li>
+              <li><i class="fas fa-check"></i> Share knowledge and grow together</li>
+            </ul>
+          </div>
+          <div class="col media">
+            <div class="media-card">
+              <img src="/public/images/about3.jpg" alt="Students collaborating" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Helps -->
+    <section class="about-section alt">
+      <div class="container">
+        <div class="two-col reverse">
+          <div class="col media">
+            <div class="media-card">
+              <img src="/public/images/about1.jpg" alt="Technology and VR" />
+            </div>
+          </div>
+          <div class="col text">
+            <h2>Why It Matters</h2>
+            <p>Posting projects gives us motivation and empowers us to improve every day. Contributing to open-source and team projects is a great way to learn and give back to the community.</p>
+            <div class="stats">
+              <div class="stat"><span>10k+</span>Users</div>
+              <div class="stat"><span>2k+</span>Projects</div>
+              <div class="stat"><span>5k+</span>Collaborations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quotes -->
+    <section class="quotes">
+      <div class="container">
+        <div class="quote-card">
+          <i class="fas fa-quote-left"></i>
+          <p>Keep on going, and the chances are that you will stumble on something—perhaps when you are least expecting it. I never heard of anyone ever stumbling on something sitting down.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="about-section">
+      <div class="container">
+        <div class="two-col">
+          <div class="col text">
+            <h2>Our Values</h2>
+            <p>We are dedicated to building a community that values learning, creativity, and collaboration. Together we aim to create an inclusive space for all developers and innovators.</p>
+            <div class="pill-group">
+              <span class="pill">Collaboration</span>
+              <span class="pill">Innovation</span>
+              <span class="pill">Openness</span>
+              <span class="pill">Growth</span>
+            </div>
+          </div>
+          <div class="col media">
+            <div class="media-card">
+              <img src="/public/images/about2.jpg" alt="Coding and creativity" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-text">
+            <h2>Ready to collaborate?</h2>
+            <p>Join the VIT community and start building something amazing today.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="/register" class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started</a>
+            <a href="/projects" class="btn btn-secondary"><i class="fas fa-eye"></i> Explore Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3><i class="fas fa-code"></i> VIT ProjectMate</h3>
+            <p>Development Leads To Invention</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Platform</h4>
+              <a href="/projects">Explore Projects</a>
+              <a href="/about">About Us</a>
+              <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-column">
+              <h4>Community</h4>
+              <a href="/gallery">Gallery</a>
+              <a href="/register">Join Us</a>
+              <a href="/login">Login</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Copyright © 2025 Aarushi Chaddha</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      navToggle && navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        });
+      });
+    </script>
+  </body>
+</html>

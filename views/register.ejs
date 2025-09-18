@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" class="nav-brand"><i class="fas fa-code"></i> VIT ProjectMate</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a class="nav-link" href="/projects"><i class="fas fa-search"></i> Explore</a>
+                <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About</a>
+                <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a class="nav-link" href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+                <a class="nav-link nav-cta" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+                <a class="nav-link nav-cta-primary" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Hero -->
+    <section class="auth-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="gradient-text">Create your account</span></h1>
+                <p class="hero-subtitle">Join the VIT community and start building</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Card -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-card">
+                <div class="social-row">
+                    <button class="social-btn" type="button"><img src="/public/images/google.png" alt="Google"> Sign up with Google</button>
+                    <button class="icon-btn" type="button" aria-label="Facebook"><img src="/public/images/face.svg" alt="Facebook"></button>
+                    <button class="icon-btn" type="button" aria-label="GitHub"><img src="/public/images/github.svg" alt="GitHub"></button>
+                    <button class="icon-btn" type="button" aria-label="LinkedIn"><img src="/public/images/ln.png" alt="LinkedIn"></button>
+                </div>
+                <div class="divider"><span>or sign up with email</span></div>
+
+                <form name="login" action="/register" method="POST" enctype="multipart/form-data" id="registerForm" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputEmail4"><i class="fas fa-envelope"></i> VIT Email</label>
+                            <input type="email" id="inputEmail4" name="username" placeholder="yourname.regNo@vitbhopal.ac.in" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail5"><i class="fas fa-user"></i> Name</label>
+                            <input type="text" id="inputEmail5" name="email" placeholder="Your full name" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputPassword"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="inputPassword" name="password" placeholder="••••••••" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputconfPassword"><i class="fas fa-lock"></i> Confirm Password</label>
+                            <input type="password" id="inputconfPassword" name="confpassword" placeholder="••••••••" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputInstitute"><i class="fas fa-school"></i> Institute</label>
+                            <input type="text" id="inputInstitute" name="institute" placeholder="Institute name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="about"><i class="fas fa-id-card"></i> About</label>
+                            <input type="text" id="about" name="about" placeholder="Tell us about yourself" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="myImage"><i class="fas fa-image"></i> Upload your profile photo</label>
+                        <input type="file" id="myImage" name="myImage" accept="image/*" required/>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputLanguages"><i class="fas fa-code"></i> Favourite Programming Language</label>
+                            <input type="text" id="inputLanguages" name="language" placeholder="e.g., JavaScript" />
+                        </div>
+                        <div class="form-group">
+                            <label for="githublink"><i class="fab fa-github"></i> Github Link</label>
+                            <input type="text" id="githublink" name="github" placeholder="https://github.com/username" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedinLink"><i class="fab fa-linkedin"></i> LinkedIn Link</label>
+                        <input type="text" id="linkedinLink" name="linkedIn" placeholder="https://www.linkedin.com/in/username" />
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="registerbtn" class="btn btn-primary" type="submit"><i class="fas fa-user-plus"></i> Register</button>
+                        <a class="btn btn-secondary" href="/login"><i class="fas fa-sign-in-alt"></i> Already have an account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-code"></i> VIT ProjectMate</h3>
+                    <p>Development Leads To Invention</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <a href="/projects">Explore Projects</a>
+                        <a href="/about">About Us</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Community</h4>
+                        <a href="/gallery">Gallery</a>
+                        <a href="/register">Join Us</a>
+                        <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>C</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        navToggle && navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Simple client validation parity with old page
+        const form = document.getElementById('registerForm');
+        form && form.addEventListener('submit', (e)=>{
+            const pass = document.getElementById('inputPassword').value;
+            const conf = document.getElementById('inputconfPassword').value;
+            if(pass !== conf){
+                e.preventDefault();
+                alert('Passwords do not match');
+            }
+        });
+    </script>
+</body>
+</html>

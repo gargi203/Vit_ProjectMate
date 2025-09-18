@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Details - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/show.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="/" class="nav-brand"><i class="fas fa-code"></i> VIT ProjectMate</a>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a class="nav-link" href="/projects"><i class="fas fa-search"></i> Explore</a>
+          <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About</a>
+          <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+          <a class="nav-link" href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+          <%  if(!user){%>
+          <a class="nav-link nav-cta" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+          <a class="nav-link nav-cta-primary" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <%  }else{ %>
+          <a class="nav-link nav-cta" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          <a href="/userprofile" class="nav-profile"><img src="/<%= user.img.path %>" alt="" class="profile-img"></a>
+          <%  } %>
+        </div>
+        <div class="nav-toggle" id="nav-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="show-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title"><span class="gradient-text">Project Details</span></h1>
+          <p id="result" class="hero-subtitle"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Card -->
+    <section class="show-section">
+      <div class="container">
+        <article class="project-card">
+          <header class="project-header">
+            <h2 class="project-title"><%= project.title %></h2>
+            <span class="owner">by <a href="/userprofile/<%=project.owner.id%>"><%= project.owner.username %></a></span>
+          </header>
+          <div class="project-meta">
+            <span class="badge">Max: <%= project.max %></span>
+            <span class="badge need">Need: <%= project.need %></span>
+          </div>
+          <section class="project-section">
+            <h3>Description</h3>
+            <p><%= project.descrip %></p>
+          </section>
+          <section class="project-section">
+            <h3>Technologies Used</h3>
+            <p><%= project.technologies %></p>
+          </section>
+          <div class="apply">
+            <% if(user){%>
+            <form action="/request/<%=project._id%>" method="post">
+              <button id="apply" class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> Apply</button>
+            </form>
+            <% } else { %>
+            <a href="/login" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Apply</a>
+            <% } %>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3><i class="fas fa-code"></i> VIT ProjectMate</h3>
+            <p>Development Leads To Invention</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Platform</h4>
+              <a href="/projects">Explore Projects</a>
+              <a href="/about">About Us</a>
+              <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-column">
+              <h4>Community</h4>
+              <a href="/gallery">Gallery</a>
+              <a href="/register">Join Us</a>
+              <a href="/login">Login</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Copyright © 2025 Aarushi Chaddha</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      navToggle && navToggle.addEventListener('click', ()=>{
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+      const applyBtn = document.getElementById('apply');
+      if(applyBtn){
+        applyBtn.addEventListener('click', function() {
+          const res = document.getElementById('result');
+          if(res){ res.textContent = 'Thank you for applying. Please check Your applications for status.'; }
+        });
+      }
+    </script>
+  </body>
+</html>

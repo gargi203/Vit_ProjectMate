@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" class="nav-brand"><i class="fas fa-code"></i> VIT ProjectMate</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a class="nav-link" href="/projects"><i class="fas fa-search"></i> Explore</a>
+                <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About</a>
+                <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a class="nav-link" href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+                <%  if(!user){%>
+                <a class="nav-link nav-cta" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+                <a class="nav-link nav-cta-primary" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <%  }else{ %>
+                <a class="nav-link nav-cta" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <%  } %>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="auth-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="gradient-text">Edit your profile</span></h1>
+                <p class="hero-subtitle">Update your information and links</p>
+                <h2 id="result" style="color:#1A7F5A;margin-top:10px"></h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Card -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-card">
+                <div class="divider"><span>Profile details</span></div>
+                <form name="login" onsubmit="return checkinput()" action="/userprofile?_method=PUT" method="POST" enctype="multipart/form-data" id="LoginForm" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputEmail4"><i class="fas fa-envelope"></i> VIT Email</label>
+                            <input type="email" value="<%=puser.username%>" id="inputEmail4" name="username" disabled placeholder="VIT Email" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Name</label>
+                            <input type="text" id="name" name="email" placeholder="Name" value="<%=puser.email%>" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputInstitute"><i class="fas fa-school"></i> Institute</label>
+                            <input type="text" value="<%=puser.institute%>" id="inputInstitute" name="institute" placeholder="Institute" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="about"><i class="fas fa-id-card"></i> About</label>
+                            <input type="text" value="<%=puser.about%>" id="about" name="about" placeholder="About" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="myImage"><i class="fas fa-image"></i> Upload your profile photo</label>
+                        <input type="file" id="myImage" name="myImage" accept="image/*" required/>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputLanguages"><i class="fas fa-code"></i> Favourite Programming Language</label>
+                            <input type="text" class="form-control" value="<%=puser.language%>" id="inputLanguages" name="language" placeholder="e.g., JavaScript" />
+                        </div>
+                        <div class="form-group">
+                            <label for="githublink"><i class="fab fa-github"></i> Github Link</label>
+                            <input type="text" id="githublink" name="github" value="<%=puser.github%>" placeholder="https://github.com/username" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedinLink"><i class="fab fa-linkedin"></i> LinkedIn Link</label>
+                        <input type="text" id="linkedinLink" name="linkedIn" value="<%=puser.linkedIn%>" placeholder="https://www.linkedin.com/in/username" />
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="registerbtn" class="btn btn-primary"><i class="fas fa-save"></i> Save changes</button>
+                        <a class="btn btn-secondary" href="/userprofile"><i class="fas fa-user"></i> View profile</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-code"></i> VIT ProjectMate</h3>
+                    <p>Development Leads To Invention</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <a href="/projects">Explore Projects</a>
+                        <a href="/about">About Us</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Community</h4>
+                        <a href="/gallery">Gallery</a>
+                        <a href="/register">Join Us</a>
+                        <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025 Aarushi Chaddha</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        navToggle && navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        document.getElementById("registerbtn").addEventListener("click", function() {
+            const resEl = document.getElementById("result");
+            if(resEl){ resEl.innerHTML = "Your Changes have been saved"; }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        function checkinput(){
+            var str=document.login.linkedIn.value;
+            var result=str.match(/(ftp|http|https):\/\/?((www|\w\w)\.)?linkedin.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/)
+            if(document.login.username.value==""){
+                alert("Please enter the User Email");
+                return false;
+            } else if(result==null){
+                alert("Wrong LinkedIn Link");
+                return false;
+            } else { return true; }
+        }
+    </script>
+</body>
+</html>

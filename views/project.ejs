@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-x: hidden;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/project.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" class="nav-brand">
+                    <i class="fas fa-code"></i>
+                    VIT ProjectMate
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="/projects" class="nav-link active">
+                    <i class="fas fa-search"></i>
+                    Explore
+                </a>
+                <a href="/about" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </a>
+                <a href="/contact" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+                <a href="/gallery" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    Gallery
+                </a>
+                <a href="/search" class="nav-link">
+                    <i class="fas fa-magnifying-glass"></i>
+                    Search
+                </a>
+                
+                <% if(!user){ %>
+                <a href="/register" class="nav-link nav-cta">
+                    <i class="fas fa-user-plus"></i>
+                    Register
+                </a>
+                <a href="/login" class="nav-link nav-cta-primary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login
+                </a>
+                <% } else { %>
+                <a href="/logout" class="nav-link nav-cta">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+                <a href="/userprofile" class="nav-profile">
+                    <img src="/<%= user.img.path %>" alt="Profile" class="profile-img">
+                </a>
+                <% } %>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Explore Projects</span>
+                    </h1>
+                    <p class="hero-subtitle">Apply for projects and enhance your development skills</p>
+                </div>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="/projects/new">
+                        <i class="fas fa-plus"></i>
+                        Create a Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Grid -->
+    <section class="projects">
+        <div class="container">
+            <div class="projects-grid" id="projects-grid">
+                <% projects.forEach(function(project){ %>
+                <a class="project-card-link" href="/projects/<%= project._id %>">
+                    <article class="project-card" data-title="<%= project.title %>" data-descrip="<%= project.descrip %>" data-need="<%= project.need %>">
+                        <div class="project-card-header">
+                            <div class="project-badge">
+                                <i class="fas fa-users"></i>
+                                <span><%= project.max %> max</span>
+                            </div>
+                            <div class="project-badge need">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Need: <%= project.need %></span>
+                            </div>
+                        </div>
+                        <h2 class="project-title"><%= project.title.substring(0, 60) %></h2>
+                        <p class="project-desc"><%= project.descrip.substring(0, 120) %>...</p>
+                        <div class="project-footer">
+                            <div class="owner">
+                                <i class="fas fa-user-circle"></i>
+                                <a href="/userprofile/<%= project.owner.id %>">Created by <%= project.owner.username %></a>
+                            </div>
+                            <div class="cta">
+                                <span class="view-link">View <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>
+                        <i class="fas fa-code"></i>
+                        VIT ProjectMate
+                    </h3>
+                    <p>Development Leads To Invention</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <a href="/projects">Explore Projects</a>
+                        <a href="/about">About Us</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Community</h4>
+                        <a href="/gallery">Gallery</a>
+                        <a href="/register">Join Us</a>
+                        <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025 Aarushi Chaddha</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Client-side search and filters
+        const searchInput = document.getElementById('project-search');
+        const filterNeed = document.getElementById('filter-need');
+        const sortBy = document.getElementById('sort-by');
+        const grid = document.getElementById('projects-grid');
+
+        function filterAndSort() {
+            const query = (searchInput.value || '').toLowerCase();
+            const needLimit = parseInt(filterNeed.value || '0', 10);
+            const cards = Array.from(grid.querySelectorAll('.project-card'));
+
+            const visible = cards.filter(card => {
+                const title = card.getAttribute('data-title')?.toLowerCase() || '';
+                const descrip = card.getAttribute('data-descrip')?.toLowerCase() || '';
+                const need = parseInt(card.getAttribute('data-need') || '0', 10);
+
+                const matchesQuery = title.includes(query) || descrip.includes(query);
+                const matchesNeed = !needLimit || need <= needLimit;
+                const show = matchesQuery && matchesNeed;
+                card.parentElement.style.display = show ? '' : 'none';
+                return show;
+            });
+
+            const sort = sortBy.value;
+            const visibleLinks = visible.map(c => c.parentElement);
+
+            visible.sort((a, b) => {
+                if (sort === 'title') {
+                    return (a.getAttribute('data-title') || '').localeCompare(b.getAttribute('data-title') || '');
+                }
+                if (sort === 'need') {
+                    return parseInt(b.getAttribute('data-need') || '0', 10) - parseInt(a.getAttribute('data-need') || '0', 10);
+                }
+                return 0; // recent: keep server order
+            });
+
+            // Re-append in sorted order
+            visible.forEach(card => grid.appendChild(card.parentElement));
+        }
+
+        [searchInput, filterNeed, sortBy].forEach(el => el && el.addEventListener('input', filterAndSort));
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+/* Buttons aligned with project.css */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .25s ease;border:2px solid #1A237E;background:#fff;color:#1A237E;cursor:pointer}
+.btn:hover{background:#1A237E;color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,35,126,.2)}
+
+/* Card adjustments */
+.project-card{min-height:auto}

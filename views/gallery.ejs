@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - VIT ProjectMate</title>
+    <link rel="stylesheet" href="/public/assets/gallery.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="/" class="nav-brand">
+            <i class="fas fa-code"></i>
+            VIT ProjectMate
+          </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+          <a class="nav-link" href="/projects"><i class="fas fa-search"></i> Explore</a>
+          <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About</a>
+          <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+          <a class="nav-link active" href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+          <%  if(!user){%>
+          <a class="nav-link nav-cta" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+          <a class="nav-link nav-cta-primary" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <%  }else{ %>
+          <a class="nav-link nav-cta" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          <a href="/userprofile" class="nav-profile"><img src="/<%= user.img.path %>" class="profile-img" alt=""></a>
+          <%  } %>
+        </div>
+
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="gallery-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title"><span class="gradient-text">Community Gallery</span></h1>
+          <p class="hero-subtitle">Highlights from hackathons, projects, and student creations</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Images -->
+          <figure class="gallery-item"><img src="/public/images/img1.jpg" alt="Google Hackathon"><figcaption>Google Hackathon</figcaption></figure>
+          <figure class="gallery-item"><img src="/public/images/img2.png" alt="Awesome Projects to build"><figcaption>Awesome Projects to build</figcaption></figure>
+          <figure class="gallery-item tall"><img src="/public/images/img4.png" alt="Explore new technologies"><figcaption>Explore new technologies</figcaption></figure>
+          <figure class="gallery-item wide"><img src="/public/images/img5.jpg" alt="Coding Environment in Hackathons"><figcaption>Coding Environment in Hackathons</figcaption></figure>
+
+          <!-- Videos (embedded) -->
+          <div class="gallery-item video">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/jnHYXPRBB9k?rel=0" title="YouTube video" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <figcaption>Highlights</figcaption>
+          </div>
+          <div class="gallery-item video">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/YtxLexm-9pI?rel=0" title="YouTube video" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <figcaption>Build with the best</figcaption>
+          </div>
+          <div class="gallery-item video">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/qRKzeas369s?rel=0" title="YouTube video" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <figcaption>Explore tech</figcaption>
+          </div>
+          <div class="gallery-item video">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/XyIvSIY0MTM?rel=0" title="YouTube video" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <figcaption>Events</figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+      <div class="lightbox-content" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
+        <img id="lightbox-image" alt="Preview">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3><i class="fas fa-code"></i> VIT ProjectMate</h3>
+            <p>Development Leads To Invention</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Platform</h4>
+              <a href="/projects">Explore Projects</a>
+              <a href="/about">About Us</a>
+              <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-column">
+              <h4>Community</h4>
+              <a href="/gallery">Gallery</a>
+              <a href="/register">Join Us</a>
+              <a href="/login">Login</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Copyright © 2025 Aarushi Chaddha</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      navToggle && navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxCaption.textContent = img.closest('.gallery-item')?.querySelector('figcaption')?.textContent || '';
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox(){
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      lightboxBackdrop.addEventListener('click', closeLightbox);
+      lightboxClose.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+    </script>
+  </body>
+</html>
